@@ -1,13 +1,17 @@
 import React from 'react';
 
-import { Brand, Header, HeaderStyles } from './navbar.style';
+import { ButtonPrimary, ButtonSecondary } from '../Buttons';
+
+import { Brand, Header, HeaderStyles, HeaderStylesRight } from './navbar.style';
 
 export const Navbar = () => (
   <HeaderStyles>
     <Header>
-      <Brand>Record Store</Brand>
-      <button type='button'>Login</button>
-      <button type='button'>SignUp</button>
+      <Brand>RECORD STORE</Brand>
+      <HeaderStylesRight>
+        <ButtonSecondary type='button'>Login</ButtonSecondary>
+        <ButtonPrimary type='button'>Sign up</ButtonPrimary>
+      </HeaderStylesRight>
     </Header>
   </HeaderStyles>
 );
