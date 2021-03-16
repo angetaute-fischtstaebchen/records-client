@@ -8,12 +8,13 @@ export const HeaderStyles = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 100%;
-  min-height: ${navbarConstants.height};
+  min-height: ${navbarConstants.minHeight};
+  max-height: ${navbarConstants.maxHeight};
   background-color: ${navbarConstants.color};
 `;
 
 export const Header = styled.div`
-  width: 1048px;
+  width: 1600px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,8 +26,9 @@ export const HeaderStylesRight = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  width: 180px;
+  width: 220px;
 `;
 export const Brand = styled.h3`
   margin-right: auto;
+  font-size: 24px;
 `;
