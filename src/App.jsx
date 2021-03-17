@@ -6,6 +6,7 @@ import { GlobalStyle } from './components/GlobalStyle';
 import { Home } from './home';
 import { Login } from './auth/Login';
 import { Records } from './records/Records';
+import { Profile } from './userProfile/Profile';
 
 export const App = () => (
   <>
@@ -16,6 +17,7 @@ export const App = () => (
         <Route path='/login' component={Login} />
         <Route path='/signup' component={SignUp} />
         <Route path='/records' component={Records} />
+        <Route path='/profile' component={Profile} />
         <Route path='/' component={Home} />
       </Switch>
     </Router>
