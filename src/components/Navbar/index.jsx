@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { Button, LoginButton } from '../Buttons';
 
@@ -14,7 +14,9 @@ export const Navbar = () => {
   return (
     <HeaderStyles>
       <Header>
-        <Brand>RECORD STORE</Brand>
+        <Brand>
+          <Link to='/'>RECORD STORE </Link>
+        </Brand>
         <HeaderStylesRight>
           <LoginButton type='button' onClick={handleGoToLogin}>
             Login
