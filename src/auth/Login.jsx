@@ -3,23 +3,23 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/Buttons';
 import {
   FormStlyes,
-  Grid,
   SignUpStyles,
   Form,
-  SalutationComment,
   Input,
   ImageSignUp,
   ButtonTertiaryStyles,
 } from './auth.styles';
 import backgroundImage from '../components/imgs/Login.png';
+import { PrimaryText, Title } from '../components/Text';
+import { GridAuth } from '../components/Grid';
 
 export const Login = () => (
   <SignUpStyles>
-    <Grid height='600px'>
+    <GridAuth height='600px'>
       <FormStlyes>
         <div>
-          <h1>Welcome back!!</h1>
-          <SalutationComment>Please fill in your credentials</SalutationComment>
+          <Title>Welcome back!!</Title>
+          <PrimaryText>Please fill in your credentials</PrimaryText>
         </div>
         <Form>
           <div>
@@ -40,6 +40,6 @@ export const Login = () => (
         </p>
       </FormStlyes>
       <ImageSignUp background={backgroundImage} />
-    </Grid>
+    </GridAuth>
   </SignUpStyles>
 );

@@ -3,7 +3,7 @@ import backgroundImage from '../components/imgs/Home.png';
 import { navbarConstants } from '../components/Navbar/constants';
 
 export const HomeStyles = styled.div`
-  height: calc(100vh - ${navbarConstants.maxHeight});
+  height: calc(100vh - ${navbarConstants.height});
   background-image: url(${backgroundImage});
   background-size: cover;
   background-repeat: no-repeat;

@@ -8,8 +8,7 @@ export const HeaderStyles = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 100%;
-  min-height: ${navbarConstants.minHeight};
-  max-height: ${navbarConstants.maxHeight};
+  height: ${navbarConstants.height};
   background-color: ${navbarConstants.color};
 `;
 

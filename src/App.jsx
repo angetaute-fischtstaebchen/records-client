@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar';
 import { GlobalStyle } from './components/GlobalStyle';
 import { Home } from './home';
 import { Login } from './auth/Login';
+import { Records } from './records/Records';
 
 export const App = () => (
   <>
@@ -14,6 +15,7 @@ export const App = () => (
       <Switch>
         <Route path='/login' component={Login} />
         <Route path='/signup' component={SignUp} />
+        <Route path='/records' component={Records} />
         <Route path='/' component={Home} />
       </Switch>
     </Router>
