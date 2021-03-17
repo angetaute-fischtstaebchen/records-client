@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { ButtonPrimary, ButtonSecondary } from '../Buttons';
+import { Button, Login } from '../Buttons';
 
 import { Brand, Header, HeaderStyles, HeaderStylesRight } from './navbar.style';
 
@@ -15,10 +15,10 @@ export const Navbar = () => {
       <Header>
         <Brand>RECORD STORE</Brand>
         <HeaderStylesRight>
-          <ButtonSecondary type='button'>Login</ButtonSecondary>
-          <ButtonPrimary type='button' onClick={handleGoToSignUp}>
+          <Login type='button'>Login</Login>
+          <Button type='button' onClick={handleGoToSignUp}>
             Sign up
-          </ButtonPrimary>
+          </Button>
         </HeaderStylesRight>
       </Header>
     </HeaderStyles>
