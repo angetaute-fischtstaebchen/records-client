@@ -7,6 +7,7 @@ import { Home } from './home';
 import { Login } from './auth/Login';
 import { Records } from './records/Records';
 import { Profile } from './userProfile/Profile';
+import { RecordsProvider } from './context/recordsContext';
 
 export const App = () => (
   <>
@@ -16,7 +17,11 @@ export const App = () => (
       <Switch>
         <Route path='/login' component={Login} />
         <Route path='/signup' component={SignUp} />
-        <Route path='/records' component={Records} />
+        <Route path='/records'>
+          <RecordsProvider>
+            <Records />
+          </RecordsProvider>
+        </Route>
         <Route path='/profile' component={Profile} />
         <Route path='/' component={Home} />
       </Switch>
