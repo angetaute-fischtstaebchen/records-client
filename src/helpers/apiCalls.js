@@ -1,4 +1,4 @@
-import { LOGIN_USER, SIGNUP_USER } from '../context/constants';
+import { FETCH_RECORDS, LOGIN_USER, SIGNUP_USER } from '../context/constants';
 import { axiosInstance as axios } from './axiosConfig';
 
 export const loginUser = async ({ email, password, dispatchUser }) => {
@@ -27,6 +27,15 @@ export const signUpUser = async ({
       password,
     });
     dispatchUser({ type: SIGNUP_USER, payload: data });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getAllRecords = async ({ dispatchRecords }) => {
+  try {
+    const { data } = await axios.get('/dashboard');
+    dispatchRecords({ type: FETCH_RECORDS, payload: data });
   } catch (err) {
     console.log(err);
   }
