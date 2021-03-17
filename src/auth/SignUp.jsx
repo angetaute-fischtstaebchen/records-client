@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../components/Buttons';
 import {
   FormStlyes,
@@ -9,34 +9,29 @@ import {
   ImageSignUp,
   ButtonTertiaryStyles,
 } from './auth.styles';
+
 import backgroundImage from '../components/imgs/SignUp.png';
 import { PrimaryText, Title } from '../components/Text';
 import { GridAuth } from '../components/Grid';
 import { useUser } from '../context/userContext';
-import { useInput } from '../hooks/useInput';
 import { signUpUser } from '../helpers/apiCalls';
 
+const initialUserState = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  nickName: '',
+  password: '',
+  repeatedPassword: '',
+};
+
 export const SignUp = () => {
-  const [firstNameProps, resetFirstName] = useInput('');
-  const [lastNameProps, resetLastName] = useInput('');
-  const [emailProps, resetEmail] = useInput('');
-  const [nickNameProps, resetNickNameProps] = useInput('');
-  const [passwordProps, resetPassword] = useInput('');
-  const [repeatedPasswordProps, resetRepeatPassword] = useInput('');
+  const [newUser, setNewUser] = useState(initialUserState);
   const { dispatchUser } = useUser();
 
   const handleSignUpUser = (e) => {
     e.preventDefault();
-
-    const { value: firstName } = firstNameProps;
-    const { value: lastName } = lastNameProps;
-    const { value: email } = emailProps;
-    const { value: nickName } = nickNameProps;
-    const { value: password } = passwordProps;
-    const { value: repeatedPassword } = repeatedPasswordProps;
-
-    if (password !== repeatedPassword) return;
-
+    const { firstName, lastName, email, nickName, password } = newUser;
     signUpUser({
       firstName,
       lastName,
@@ -45,13 +40,11 @@ export const SignUp = () => {
       password,
       dispatchUser,
     });
-    resetFirstName();
-    resetLastName();
-    resetEmail();
-    resetNickNameProps();
-    resetPassword();
-    resetRepeatPassword();
+    setNewUser(initialUserState);
   };
+
+  const handleInputs = (e) =>
+    setNewUser({ ...newUser, [e.target.name]: e.target.value });
 
   return (
     <SignUpStyles>
@@ -68,21 +61,51 @@ export const SignUp = () => {
           </div>
           <Form onSubmit={handleSignUpUser}>
             <FirstLastStyles>
-              <Input {...firstNameProps} placeholder='First Name' />
-              <Input {...lastNameProps} placeholder='Last Name' />
+              <Input
+                name='firstName'
+                value={newUser.firstName}
+                onChange={handleInputs}
+                placeholder='First Name'
+              />
+              <Input
+                name='lastName'
+                value={newUser.lastName}
+                onChange={handleInputs}
+                placeholder='Last Name'
+              />
             </FirstLastStyles>
             <div>
-              <Input {...emailProps} placeholder='Email' width='100%' />
-            </div>
-            <div>
-              <Input {...nickNameProps} placeholder='Nickname' width='100%' />
-            </div>
-            <div>
-              <Input {...passwordProps} placeholder='Password' width='100%' />
+              <Input
+                name='email'
+                value={newUser.email}
+                onChange={handleInputs}
+                placeholder='Email'
+                width='100%'
+              />
             </div>
             <div>
               <Input
-                {...repeatedPasswordProps}
+                name='nickName'
+                value={newUser.nickName}
+                onChange={handleInputs}
+                placeholder='Nickname'
+                width='100%'
+              />
+            </div>
+            <div>
+              <Input
+                name='password'
+                value={newUser.password}
+                onChange={handleInputs}
+                placeholder='Password'
+                width='100%'
+              />
+            </div>
+            <div>
+              <Input
+                name='repeatedPassword'
+                value={newUser.repeatedPassword}
+                onChange={handleInputs}
                 placeholder='Repeat password'
                 width='100%'
               />
