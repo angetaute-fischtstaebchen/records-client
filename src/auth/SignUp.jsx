@@ -16,7 +16,7 @@ import { GridAuth } from '../components/Grid';
 import { useUser } from '../context/userContext';
 import { signUpUser } from '../helpers/apiCalls';
 
-const initialUserState = {
+const initialNewUserState = {
   firstName: '',
   lastName: '',
   email: '',
@@ -26,7 +26,7 @@ const initialUserState = {
 };
 
 export const SignUp = () => {
-  const [newUser, setNewUser] = useState(initialUserState);
+  const [newUser, setNewUser] = useState(initialNewUserState);
   const { dispatchUser } = useUser();
 
   const handleSignUpUser = (e) => {
@@ -40,7 +40,7 @@ export const SignUp = () => {
       password,
       dispatchUser,
     });
-    setNewUser(initialUserState);
+    setNewUser(initialNewUserState);
   };
 
   const handleInputs = (e) =>
