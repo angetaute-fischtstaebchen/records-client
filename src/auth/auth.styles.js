@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import backgroundImage from '../components/imgs/SignUp.png';
+
 import { navbarConstants } from '../components/Navbar/constants';
 
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 1600px;
-  height: 800px;
+  height: ${(props) => props.height};
 `;
 
 export const ImageSignUp = styled.div`
-  background-image: url(${backgroundImage});
+  background-image: url(${(props) => props.background});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/Buttons';
 import {
   FormStlyes,
@@ -7,48 +8,36 @@ import {
   Form,
   SalutationComment,
   Input,
-  FirstLastStyles,
   ImageSignUp,
   ButtonTertiaryStyles,
 } from './auth.styles';
-import backgroundImage from '../components/imgs/SignUp.png';
+import backgroundImage from '../components/imgs/Login.png';
 
-export const SignUp = () => (
+export const Login = () => (
   <SignUpStyles>
-    <Grid height='800px'>
+    <Grid height='600px'>
       <FormStlyes>
         <div>
-          <h1>
-            Hurrraaaaay! <br />
-            Lets us know who you are!
-          </h1>
-          <SalutationComment>
-            We won&apos;t share your info with anybody. I promise
-          </SalutationComment>
+          <h1>Welcome back!!</h1>
+          <SalutationComment>Please fill in your credentials</SalutationComment>
         </div>
         <Form>
-          <FirstLastStyles>
-            <Input placeholder='First Name' />
-            <Input placeholder='Last Name' />
-          </FirstLastStyles>
           <div>
             <Input placeholder='Email' width='100%' />
           </div>
           <div>
-            <Input placeholder='Nickname' width='100%' />
-          </div>
-          <div>
             <Input placeholder='Password' width='100%' />
-          </div>
-          <div>
-            <Input placeholder='Repeat password' width='100%' />
           </div>
           <ButtonTertiaryStyles>
             <Button secondary type='button'>
-              Create account
+              Log in
             </Button>
           </ButtonTertiaryStyles>
         </Form>
+        <p>
+          What? You don&apos;t have an account? Create one
+          <Link to='/signup'> here!</Link>
+        </p>
       </FormStlyes>
       <ImageSignUp background={backgroundImage} />
     </Grid>

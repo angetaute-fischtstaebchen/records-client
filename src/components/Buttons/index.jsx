@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Login = styled.button`
+export const LoginButton = styled.button`
   border: none;
   font-size: 20px;
   font-weight: 700;
@@ -11,7 +11,7 @@ export const Login = styled.button`
   }
 `;
 
-export const Button = styled(Login)`
+export const Button = styled(LoginButton)`
   background: ${(props) =>
     props.secondary
       ? '#f2f2f2 0% 0% no-repeat padding-box'
