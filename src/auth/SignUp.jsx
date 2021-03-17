@@ -11,10 +11,11 @@ import {
 } from './auth.styles';
 
 import backgroundImage from '../components/imgs/SignUp.png';
-import { PrimaryText, Title } from '../components/Text';
+import { PrimaryText, Title, ErrorMessage } from '../components/Text';
 import { GridAuth } from '../components/Grid';
 import { useUser } from '../context/userContext';
 import { signUpUser } from '../helpers/apiCalls';
+import { validateSingUp } from '../helpers';
 
 const initialNewUserState = {
   firstName: '',
@@ -27,10 +28,16 @@ const initialNewUserState = {
 
 export const SignUp = () => {
   const [newUser, setNewUser] = useState(initialNewUserState);
+  const [error, setError] = useState(null);
+
   const { dispatchUser } = useUser();
 
   const handleSignUpUser = (e) => {
     e.preventDefault();
+
+    const validationResponse = validateSingUp(newUser);
+    if (validationResponse) return setError({ [validationResponse]: 'error' });
+
     const { firstName, lastName, email, nickName, password } = newUser;
     signUpUser({
       firstName,
@@ -41,6 +48,7 @@ export const SignUp = () => {
       dispatchUser,
     });
     setNewUser(initialNewUserState);
+    return undefined;
   };
 
   const handleInputs = (e) =>
@@ -100,6 +108,13 @@ export const SignUp = () => {
                 placeholder='Password'
                 width='100%'
               />
+              {error?.passwordStrength && (
+                <ErrorMessage>
+                  Password is not strong enough. You need at least one number,
+                  one lowercase and one uppercase letter and at least six
+                  characters
+                </ErrorMessage>
+              )}
             </div>
             <div>
               <Input
@@ -109,6 +124,9 @@ export const SignUp = () => {
                 placeholder='Repeat password'
                 width='100%'
               />
+              {error?.passwordEquality && (
+                <ErrorMessage>Passwords do not match</ErrorMessage>
+              )}
             </div>
             <ButtonTertiaryStyles>
               <Button secondary type='submit'>

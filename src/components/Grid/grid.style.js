@@ -10,8 +10,9 @@ export const GridRecords = styled.div`
   display: grid;
   width: 1600px;
   padding: 20px 0;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  grid-auto-rows: minmax(250px, auto);
+  gap: 30px;
+  grid-template-columns: repeat(auto-fill, 376px);
+  grid-auto-rows: 376px;
 `;
 
 export const GridAuth = styled.div`
