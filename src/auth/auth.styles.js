@@ -2,13 +2,6 @@ import styled from 'styled-components';
 
 import { navbarConstants } from '../components/Navbar/constants';
 
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 1600px;
-  height: ${(props) => props.height};
-`;
-
 export const ImageSignUp = styled.div`
   background-image: url(${(props) => props.background});
   background-size: cover;
@@ -18,15 +11,12 @@ export const ImageSignUp = styled.div`
 `;
 
 export const SignUpStyles = styled.div`
-  height: calc(100vh - ${navbarConstants.maxHeight});
+  height: calc(100vh - ${navbarConstants.height});
   display: grid;
   justify-content: center;
   align-items: center;
 `;
 
-export const SalutationComment = styled.p`
-  font-size: 24px;
-`;
 export const FormStlyes = styled.div`
   max-width: 538px;
   display: flex;

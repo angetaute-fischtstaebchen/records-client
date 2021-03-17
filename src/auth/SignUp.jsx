@@ -2,29 +2,29 @@ import React from 'react';
 import { Button } from '../components/Buttons';
 import {
   FormStlyes,
-  Grid,
   SignUpStyles,
   Form,
-  SalutationComment,
   Input,
   FirstLastStyles,
   ImageSignUp,
   ButtonTertiaryStyles,
 } from './auth.styles';
 import backgroundImage from '../components/imgs/SignUp.png';
+import { PrimaryText, Title } from '../components/Text';
+import { GridAuth } from '../components/Grid';
 
 export const SignUp = () => (
   <SignUpStyles>
-    <Grid height='800px'>
+    <GridAuth height='800px'>
       <FormStlyes>
         <div>
-          <h1>
+          <Title>
             Hurrraaaaay! <br />
             Lets us know who you are!
-          </h1>
-          <SalutationComment>
+          </Title>
+          <PrimaryText>
             We won&apos;t share your info with anybody. I promise
-          </SalutationComment>
+          </PrimaryText>
         </div>
         <Form>
           <FirstLastStyles>
@@ -51,6 +51,6 @@ export const SignUp = () => (
         </Form>
       </FormStlyes>
       <ImageSignUp background={backgroundImage} />
-    </Grid>
+    </GridAuth>
   </SignUpStyles>
 );
