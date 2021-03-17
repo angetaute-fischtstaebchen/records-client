@@ -13,13 +13,22 @@ import backgroundImage from '../components/imgs/Login.png';
 import { PrimaryText, Title } from '../components/Text';
 import { GridAuth } from '../components/Grid';
 import { useInput } from '../hooks/useInput';
+import { loginUser } from '../helpers/apiCalls';
+import { useUser } from '../context/userContext';
 
 export const Login = () => {
   const [emailProps, resetEmail] = useInput('');
   const [passwordProps, resetPassword] = useInput('');
 
-  const handleSignUpSubmit = (e) => {
+  const { dispatchUser } = useUser();
+
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
+    const { value: email } = emailProps;
+    const { value: password } = passwordProps;
+    if (!email.trim() || !password.trim()) return;
+
+    loginUser({ email, password, dispatchUser });
     resetEmail();
     resetPassword();
   };
@@ -32,7 +41,7 @@ export const Login = () => {
             <Title>Welcome back!!</Title>
             <PrimaryText>Please fill in your credentials</PrimaryText>
           </div>
-          <Form onSubmit={handleSignUpSubmit}>
+          <Form onSubmit={handleLoginSubmit}>
             <div>
               <Input {...emailProps} placeholder='Email' width='100%' />
             </div>
