@@ -1,4 +1,5 @@
 export const navbarConstants = {
-  height: '64px',
+  minHeight: '64px',
+  maxHeight: '90px',
   color: '#f2f2f2',
 };

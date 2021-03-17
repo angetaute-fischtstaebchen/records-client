@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const ButtonSecondary = styled.button`
   border: none;
+  font-size: 20px;
   font-weight: 700;
+  font-family: Montserrat, sans-serif;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
