@@ -6,13 +6,13 @@ import { useUser } from '../../context/userContext';
 import { Button, LoginButton } from '../Buttons';
 
 import {
-  Avatar,
+  AvatarNav,
   Brand,
   Header,
   HeaderStyles,
   HeaderStylesRight,
 } from './navbar.style';
-import avatar from '../imgs/avatars/dog.png';
+import { dog } from '../imgs';
 
 export const Navbar = () => {
   const history = useHistory();
@@ -40,7 +40,7 @@ export const Navbar = () => {
           )}
           {user && (
             <Link to='/profile'>
-              <Avatar avatar={avatar} />
+              <AvatarNav avatar={dog} />
             </Link>
           )}
         </HeaderStylesRight>
