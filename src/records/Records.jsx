@@ -1,25 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 import { GridRecords, GridStyles } from '../components/Grid';
 import { PrimaryText } from '../components/Text';
 import { useRecords } from '../context/recordsContext';
-
-const RecordItem = styled.div`
-  opacity: 1;
-`;
-
-const RecordImageStyles = styled.div`
-  box-shadow: 0px 0px 10px #00000041;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
+import { useUser } from '../context/userContext';
+import { Image, RecordImageStyles, RecordItem } from './records.style';
 
 export const Records = () => {
+  const { user } = useUser();
   const { records } = useRecords();
+  if (!user) return <Redirect to='/home' />;
 
   return (
     <GridStyles>
