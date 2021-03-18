@@ -50,7 +50,7 @@ export const getAllRecords = async ({ dispatchRecords, source }) => {
 };
 
 export const updateUser = async ({
-  profileUpdated: { firstName, lastName, nickname },
+  profileUpdated: { firstName, lastName, nickname, avatar },
   id,
   dispatchUser,
 }) => {
@@ -59,7 +59,9 @@ export const updateUser = async ({
       firstName,
       lastName,
       nickname,
+      avatar,
     });
+
     dispatchUser({ type: UPDATE_PROFILE, payload: data });
   } catch (err) {
     console.log(err);

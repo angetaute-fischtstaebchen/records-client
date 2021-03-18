@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import styled from 'styled-components';
 
 import {
   ButtonTertiaryStyles,
@@ -22,44 +21,26 @@ import {
   AvatarsStyles,
   SelectedAvatar,
   TextStyles,
+  AvatarsImagesStyles,
+  AvatarsOptionsStyles,
 } from './profile.style';
-import {
-  dj,
-  dog,
-  dude,
-  ghost,
-  pig,
-  priestess,
-  train,
-  watch,
-  whatever,
-} from '../components/imgs';
-
-const AvatarsImagesStyles = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
-
-const AvatarsOptionsStyles = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  width: 280px;
-`;
 
 export const Profile = () => {
   const { user, dispatchUser } = useUser();
+
+  const [currentAvatar, setCurrentAvatar] = useState(user?.avatar);
 
   const [profileUpdated, setProfileUpdated] = useState({
     firstName: user?.firstName,
     lastName: user?.lastName,
     nickname: user?.nickname,
+    avatar: currentAvatar,
   });
 
   if (!user) return <Redirect to='/home' />;
 
   const { lastName, email, _id: id } = user;
-  console.log(user);
+
   const handleInputs = (e) =>
     setProfileUpdated({ ...profileUpdated, [e.target.name]: e.target.value });
 
@@ -67,6 +48,14 @@ export const Profile = () => {
     e.preventDefault();
 
     updateUser({ profileUpdated, id, dispatchUser });
+  };
+
+  const onSelectAvatar = (e) => {
+    setCurrentAvatar(`${user.baseAvatarUrl}/${e.target.name}.png`);
+    setProfileUpdated({
+      ...profileUpdated,
+      avatar: `${user.baseAvatarUrl}/${e.target.name}.png`,
+    });
   };
 
   return (
@@ -123,17 +112,53 @@ export const Profile = () => {
               </PrimaryText>
             </TextStyles>
             <AvatarsImagesStyles>
-              <SelectedAvatar avatar={dog} />
+              <SelectedAvatar name='selectedAvatar' avatar={currentAvatar} />
               <AvatarsOptionsStyles>
-                <Avatar avatar={dj} />
-                <Avatar avatar={dog} />
-                <Avatar avatar={watch} />
-                <Avatar avatar={train} />
-                <Avatar avatar={whatever} />
-                <Avatar avatar={priestess} />
-                <Avatar avatar={ghost} />
-                <Avatar avatar={dude} />
-                <Avatar avatar={pig} />
+                <Avatar
+                  name='dj'
+                  avatar={`${user.baseAvatarUrl}/dj.png`}
+                  onClick={onSelectAvatar}
+                />
+                <Avatar
+                  name='dog'
+                  avatar={`${user.baseAvatarUrl}/dog.png`}
+                  onClick={onSelectAvatar}
+                />
+                <Avatar
+                  name='watch'
+                  avatar={`${user.baseAvatarUrl}/watch.png`}
+                  onClick={onSelectAvatar}
+                />
+                <Avatar
+                  name='train'
+                  avatar={`${user.baseAvatarUrl}/train.png`}
+                  onClick={onSelectAvatar}
+                />
+                <Avatar
+                  name='whatever'
+                  avatar={`${user.baseAvatarUrl}/whatever.png`}
+                  onClick={onSelectAvatar}
+                />
+                <Avatar
+                  name='priestess'
+                  avatar={`${user.baseAvatarUrl}/priestess.png`}
+                  onClick={onSelectAvatar}
+                />
+                <Avatar
+                  name='ghost'
+                  avatar={`${user.baseAvatarUrl}/ghost.png`}
+                  onClick={onSelectAvatar}
+                />
+                <Avatar
+                  name='dude'
+                  avatar={`${user.baseAvatarUrl}/dude.png`}
+                  onClick={onSelectAvatar}
+                />
+                <Avatar
+                  name='pig'
+                  avatar={`${user.baseAvatarUrl}/pig.png`}
+                  onClick={onSelectAvatar}
+                />
               </AvatarsOptionsStyles>
             </AvatarsImagesStyles>
           </AvatarsStyles>

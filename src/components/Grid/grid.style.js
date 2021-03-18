@@ -10,7 +10,7 @@ export const GridRecords = styled.div`
   display: grid;
   width: 1600px;
   padding: 20px 0;
-  gap: 30px;
+  gap: 80px 30px;
   grid-template-columns: repeat(auto-fill, 376px);
   grid-auto-rows: 376px;
 `;

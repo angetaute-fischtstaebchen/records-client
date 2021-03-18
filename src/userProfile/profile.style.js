@@ -33,7 +33,7 @@ export const ProfileForm = styled.form`
 export const AvatarsStyles = styled.div`
   width: 700px;
 `;
-export const Avatar = styled.div`
+export const Avatar = styled.button`
   background: url(${(props) => props.avatar}) center/cover no-repeat;
   border: 2px solid #eea668;
   opacity: 1;
@@ -41,6 +41,11 @@ export const Avatar = styled.div`
   height: 75px;
   border-radius: 50%;
   cursor: pointer;
+  &:focus {
+    border-radius: 50%;
+    outline: none;
+    border: 5px solid royalblue;
+  }
 `;
 
 export const SelectedAvatar = styled.div`
@@ -55,4 +60,16 @@ export const SelectedAvatar = styled.div`
 
 export const TextStyles = styled.div`
   margin-bottom: 50px;
+`;
+
+export const AvatarsImagesStyles = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+
+export const AvatarsOptionsStyles = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 280px;
 `;

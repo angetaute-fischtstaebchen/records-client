@@ -12,7 +12,6 @@ import {
   HeaderStyles,
   HeaderStylesRight,
 } from './navbar.style';
-import { dog } from '../imgs';
 
 export const Navbar = () => {
   const history = useHistory();
@@ -25,7 +24,7 @@ export const Navbar = () => {
     <HeaderStyles>
       <Header>
         <Brand>
-          <Link to='/'>RECORD STORE </Link>
+          <Link to={user ? '/records' : '/'}>RECORD STORE </Link>
         </Brand>
         <HeaderStylesRight>
           {!user && (
@@ -40,7 +39,7 @@ export const Navbar = () => {
           )}
           {user && (
             <Link to='/profile'>
-              <AvatarNav avatar={dog} />
+              <AvatarNav avatar={user?.avatar} />
             </Link>
           )}
         </HeaderStylesRight>

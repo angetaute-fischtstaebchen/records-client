@@ -21,7 +21,7 @@ export const Records = () => {
             <RecordImageStyles>
               <Image src={cover} alt='album cover' />
             </RecordImageStyles>
-            <PrimaryText>{title}</PrimaryText>
+            <PrimaryText weight='bold'>{title}</PrimaryText>
           </RecordItem>
         ))}
       </GridRecords>
