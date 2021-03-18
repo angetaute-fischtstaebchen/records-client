@@ -6,6 +6,7 @@ export const RecordItem = styled.div`
 
 export const RecordImageStyles = styled.div`
   box-shadow: 0px 0px 10px #00000041;
+  margin-bottom: 15px;
 `;
 
 export const Image = styled.img`
