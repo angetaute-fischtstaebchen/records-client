@@ -33,3 +33,26 @@ export const ProfileForm = styled.form`
 export const AvatarsStyles = styled.div`
   width: 700px;
 `;
+export const Avatar = styled.div`
+  background: url(${(props) => props.avatar}) center/cover no-repeat;
+  border: 2px solid #eea668;
+  opacity: 1;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  cursor: pointer;
+`;
+
+export const SelectedAvatar = styled.div`
+  background: url(${(props) => props.avatar}) center/cover no-repeat;
+  border: 2px solid #eea668;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  display: grid;
+  justify-self: center;
+`;
+
+export const TextStyles = styled.div`
+  margin-bottom: 50px;
+`;

@@ -1,4 +1,9 @@
-import { FETCH_RECORDS, LOGIN_USER, SIGNUP_USER } from '../context/constants';
+import {
+  FETCH_RECORDS,
+  LOGIN_USER,
+  SIGNUP_USER,
+  UPDATE_PROFILE,
+} from '../context/constants';
 import { axiosInstance as axios } from './axiosConfig';
 
 export const loginUser = async ({ email, password, dispatchUser }) => {
@@ -35,9 +40,27 @@ export const signUpUser = async ({
 export const getAllRecords = async ({ dispatchRecords, source }) => {
   try {
     const { data } = await axios.get('/dashboard', {
-      cancelToken: source.token,
+      cancelToken: source?.token,
     });
+    console.log(data);
     dispatchRecords({ type: FETCH_RECORDS, payload: data });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const updateUser = async ({
+  profileUpdated: { firstName, lastName, nickname },
+  id,
+  dispatchUser,
+}) => {
+  try {
+    const { data } = await axios.patch(`/users/${id}`, {
+      firstName,
+      lastName,
+      nickname,
+    });
+    dispatchUser({ type: UPDATE_PROFILE, payload: data });
   } catch (err) {
     console.log(err);
   }

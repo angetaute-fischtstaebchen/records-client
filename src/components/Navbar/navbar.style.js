@@ -31,7 +31,7 @@ export const Brand = styled.h3`
   margin-right: auto;
   font-size: 24px;
 `;
-export const Avatar = styled.div`
+export const AvatarNav = styled.div`
   background: url(${(props) => props.avatar}) center/cover no-repeat;
   border: 2px solid #eea668;
   opacity: 1;
