@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { getAllRecords } from '../helpers/apiCalls';
 import { useUser } from './userContext';
 import { FETCH_RECORDS } from './constants';
@@ -21,7 +22,11 @@ export const RecordsProvider = ({ children }) => {
   const { user } = useUser();
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
     getAllRecords({ dispatchRecords });
+    return () => {
+      source?.cancel();
+    };
   }, [user]);
 
   return (

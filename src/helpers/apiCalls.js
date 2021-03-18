@@ -32,9 +32,11 @@ export const signUpUser = async ({
   }
 };
 
-export const getAllRecords = async ({ dispatchRecords }) => {
+export const getAllRecords = async ({ dispatchRecords, source }) => {
   try {
-    const { data } = await axios.get('/dashboard');
+    const { data } = await axios.get('/dashboard', {
+      cancelToken: source.token,
+    });
     dispatchRecords({ type: FETCH_RECORDS, payload: data });
   } catch (err) {
     console.log(err);
