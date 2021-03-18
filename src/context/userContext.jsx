@@ -18,6 +18,10 @@ export const useUser = () => useContext(userContext);
 
 export const UserProvider = ({ children }) => {
   const [user, dispatchUser] = useReducer(userReducer, undefined);
+  console.log(
+    '🚀 ~ file: userContext.jsx ~ line 21 ~ UserProvider ~ user',
+    user
+  );
 
   return (
     <userContext.Provider value={{ user, dispatchUser }}>

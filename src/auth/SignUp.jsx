@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Button } from '../components/Buttons';
 import {
   FormStlyes,
@@ -30,15 +31,17 @@ export const SignUp = () => {
   const [newUser, setNewUser] = useState(initialNewUserState);
   const [error, setError] = useState(null);
 
-  const { dispatchUser } = useUser();
+  const { dispatchUser, user } = useUser();
+  if (user) return <Redirect to='/records' />;
 
   const handleSignUpUser = (e) => {
     e.preventDefault();
 
-    const validationResponse = validateSingUp(newUser);
-    if (validationResponse) return setError({ [validationResponse]: 'error' });
+    const isError = validateSingUp(newUser);
+    if (isError) return setError({ [isError]: true });
 
     const { firstName, lastName, email, nickName, password } = newUser;
+
     signUpUser({
       firstName,
       lastName,
@@ -47,7 +50,7 @@ export const SignUp = () => {
       password,
       dispatchUser,
     });
-    setNewUser(initialNewUserState);
+
     return undefined;
   };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Button } from '../components/Buttons';
 import {
   FormStlyes,
@@ -20,7 +20,8 @@ export const Login = () => {
   const [emailProps, resetEmail] = useInput('');
   const [passwordProps, resetPassword] = useInput('');
 
-  const { dispatchUser } = useUser();
+  const { dispatchUser, user } = useUser();
+  if (user) return <Redirect to='/records' />;
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();

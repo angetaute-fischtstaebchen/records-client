@@ -13,5 +13,5 @@ export const validateSingUp = ({ password, repeatedPassword }) => {
   if (!validatePasswordsEquality(password, repeatedPassword))
     return 'passwordEquality';
 
-  return '';
+  return false;
 };
