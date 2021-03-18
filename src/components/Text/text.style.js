@@ -9,3 +9,7 @@ export const PrimaryText = styled.p`
 export const Title = styled.h1`
   padding-bottom: 15px;
 `;
+
+export const ErrorMessage = styled.div`
+  color: red;
+`;
