@@ -29,6 +29,7 @@ export const Input = styled.input`
   width: ${(props) => props.width};
   font-size: 18px;
   font-weight: 700;
+  padding: 5px 0;
 
   &::placeholder {
     color: #919191;
