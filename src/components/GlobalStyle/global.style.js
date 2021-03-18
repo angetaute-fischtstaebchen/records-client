@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-size: 1rem;
         font-family: "Montserrat", sans-serif;
-        padding: 20px 0;
+
         
     }
     a {
