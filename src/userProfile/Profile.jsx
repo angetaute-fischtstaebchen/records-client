@@ -33,7 +33,7 @@ export const Profile = () => (
             <Input placeholder='Last Name' />
           </FirstLastStyles>
           <div>
-            <Input placeholder='Email' width='100%' disabled='true' />
+            <Input placeholder='Email' width='100%' disabled />
           </div>
           <div>
             <Input placeholder='Nickname' width='100%' />
