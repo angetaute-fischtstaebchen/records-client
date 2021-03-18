@@ -4,6 +4,7 @@ export const GridStyles = styled.div`
   display: grid;
   justify-content: center;
   padding: 20px 0;
+  margin: 50px 0;
 `;
 
 export const GridRecords = styled.div`
