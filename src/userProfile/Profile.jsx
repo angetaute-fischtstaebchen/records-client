@@ -9,7 +9,7 @@ import {
 import { Button } from '../components/Buttons';
 import { GridAuth } from '../components/Grid/grid.style';
 
-import { PrimaryText, Title } from '../components/Text';
+import { ErrorMessage, PrimaryText, Title } from '../components/Text';
 import { useUser } from '../context/userContext';
 import { updateUser } from '../helpers/apiCalls';
 import {
@@ -26,7 +26,10 @@ import {
 } from './profile.style';
 
 export const Profile = () => {
-  const { user, dispatchUser } = useUser();
+  const {
+    auth: { user, error },
+    dispatchUser,
+  } = useUser();
 
   const [currentAvatar, setCurrentAvatar] = useState(user?.avatar);
 
@@ -96,6 +99,7 @@ export const Profile = () => {
                 onChange={handleInputs}
               />
             </div>
+            {error && <ErrorMessage>{error}</ErrorMessage>}
             <ButtonTertiaryStyles>
               <Button secondary type='submit'>
                 Save

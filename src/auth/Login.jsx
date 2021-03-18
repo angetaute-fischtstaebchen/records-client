@@ -10,7 +10,7 @@ import {
   ButtonTertiaryStyles,
 } from './auth.styles';
 import backgroundImage from '../components/imgs/Login.png';
-import { PrimaryText, Title } from '../components/Text';
+import { ErrorMessage, PrimaryText, Title } from '../components/Text';
 import { GridAuth } from '../components/Grid';
 import { useInput } from '../hooks/useInput';
 import { loginUser } from '../helpers/apiCalls';
@@ -20,7 +20,11 @@ export const Login = () => {
   const [emailProps, resetEmail] = useInput('');
   const [passwordProps, resetPassword] = useInput('');
 
-  const { dispatchUser, user } = useUser();
+  const {
+    dispatchUser,
+    auth: { user, error },
+  } = useUser();
+
   if (user) return <Redirect to='/records' />;
 
   const handleLoginSubmit = (e) => {
@@ -49,6 +53,7 @@ export const Login = () => {
             <div>
               <Input {...passwordProps} placeholder='Password' width='100%' />
             </div>
+            {error && <ErrorMessage> {error}</ErrorMessage>}
             <ButtonTertiaryStyles>
               <Button secondary type='submit'>
                 Log in

@@ -7,7 +7,9 @@ import { useUser } from '../context/userContext';
 import { Image, RecordImageStyles, RecordItem } from './records.style';
 
 export const Records = () => {
-  const { user } = useUser();
+  const {
+    auth: { user },
+  } = useUser();
   const { records } = useRecords();
   if (!user) return <Redirect to='/home' />;
 
@@ -16,12 +18,14 @@ export const Records = () => {
       <PrimaryText weight='bold'>Dashboard</PrimaryText>
       <PrimaryText>Here you can find all your records.</PrimaryText>
       <GridRecords>
-        {records.map(({ _id, title, cover }) => (
+        {records.map(({ _id, artist, cover }) => (
           <RecordItem key={_id}>
             <RecordImageStyles>
               <Image src={cover} alt='album cover' />
             </RecordImageStyles>
-            <PrimaryText weight='bold'>{title}</PrimaryText>
+            <PrimaryText fontSize='18px' weight='bold'>
+              {artist}
+            </PrimaryText>
           </RecordItem>
         ))}
       </GridRecords>

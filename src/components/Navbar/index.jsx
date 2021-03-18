@@ -15,7 +15,9 @@ import {
 
 export const Navbar = () => {
   const history = useHistory();
-  const { user } = useUser();
+  const {
+    auth: { user },
+  } = useUser();
 
   const handleGoToSignUp = () => history.push('/signup');
   const handleGoToLogin = () => history.push('/login');
