@@ -18,7 +18,7 @@ export const SignUpStyles = styled.div`
 `;
 
 export const SignUpGreetingStyles = styled.div`
-  margin-top: 4rem;
+  margin-top: 72px;
 `;
 
 export const FormStyles = styled.div`
