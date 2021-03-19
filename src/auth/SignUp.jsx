@@ -22,7 +22,7 @@ const initialNewUserState = {
   firstName: '',
   lastName: '',
   email: '',
-  nickName: '',
+  nickname: '',
   password: '',
   repeatedPassword: '',
 };
@@ -31,7 +31,11 @@ export const SignUp = () => {
   const [newUser, setNewUser] = useState(initialNewUserState);
   const [error, setError] = useState(null);
 
-  const { dispatchUser, user } = useUser();
+  const {
+    dispatchUser,
+    auth: { user, error: errorApi },
+  } = useUser();
+
   if (user) return <Redirect to='/records' />;
 
   const handleSignUpUser = (e) => {
@@ -40,13 +44,13 @@ export const SignUp = () => {
     const isError = validateSingUp(newUser);
     if (isError) return setError({ [isError]: true });
 
-    const { firstName, lastName, email, nickName, password } = newUser;
+    const { firstName, lastName, email, nickname, password } = newUser;
 
     signUpUser({
       firstName,
       lastName,
       email,
-      nickName,
+      nickname,
       password,
       dispatchUser,
     });
@@ -96,8 +100,8 @@ export const SignUp = () => {
             </div>
             <div>
               <Input
-                name='nickName'
-                value={newUser.nickName}
+                name='nickname'
+                value={newUser.nickname}
                 onChange={handleInputs}
                 placeholder='Nickname'
                 width='100%'
@@ -130,6 +134,7 @@ export const SignUp = () => {
               {error?.passwordEquality && (
                 <ErrorMessage>Passwords do not match</ErrorMessage>
               )}
+              {errorApi && <ErrorMessage>{errorApi}</ErrorMessage>}
             </div>
             <ButtonTertiaryStyles>
               <Button secondary type='submit'>

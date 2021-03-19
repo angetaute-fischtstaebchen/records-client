@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const PrimaryText = styled.p`
-  font-size: 24px;
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '24px')};
   font-weight: ${(props) => (props.weight === 'bold' ? 700 : 400)};
   padding-bottom: 10px;
 `;
