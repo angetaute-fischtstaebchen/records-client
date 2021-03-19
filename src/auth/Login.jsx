@@ -24,7 +24,7 @@ export const Login = () => {
     dispatchUser,
     auth: { user, error },
   } = useUser();
-
+  console.log(error);
   if (user) return <Redirect to='/records' />;
 
   const handleLoginSubmit = (e) => {
