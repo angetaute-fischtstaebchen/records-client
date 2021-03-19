@@ -17,7 +17,7 @@ export const SignUpStyles = styled.div`
   align-items: center;
 `;
 
-export const FormStlyes = styled.div`
+export const FormStyles = styled.div`
   max-width: 538px;
   display: flex;
   flex-direction: column;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Button } from '../components/Buttons';
 import {
-  FormStlyes,
+  FormStyles,
   SignUpStyles,
   Form,
   Input,
@@ -41,7 +41,7 @@ export const Login = () => {
   return (
     <SignUpStyles>
       <GridAuth height='600px'>
-        <FormStlyes>
+        <FormStyles>
           <div>
             <Title>Welcome back!!</Title>
             <PrimaryText>Please fill in your credentials</PrimaryText>
@@ -64,7 +64,7 @@ export const Login = () => {
             What? You don&apos;t have an account? Create one
             <Link to='/signup'> here!</Link>
           </p>
-        </FormStlyes>
+        </FormStyles>
         <ImageSignUp background={backgroundImage} />
       </GridAuth>
     </SignUpStyles>

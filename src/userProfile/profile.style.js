@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { LockAlt } from '@styled-icons/boxicons-regular/LockAlt';
 import { navbarConstants } from '../components/Navbar/constants';
 
 export const ProfileImageStyles = styled.div`
@@ -30,8 +31,17 @@ export const ProfileForm = styled.form`
   height: 500px;
 `;
 
+export const LockedInputStyle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid black;
+`;
+
 export const AvatarsStyles = styled.div`
   width: 700px;
+  height: 67vh;
 `;
 export const Avatar = styled.button`
   background: url(${(props) => props.avatar}) center/cover no-repeat;
@@ -72,4 +82,10 @@ export const AvatarsOptionsStyles = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   width: 280px;
+`;
+
+export const LockIcon = styled(LockAlt)`
+  color: black;
+  width: 1.2rem;
+  height: 1.1rem;
 `;

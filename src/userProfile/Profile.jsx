@@ -23,6 +23,8 @@ import {
   TextStyles,
   AvatarsImagesStyles,
   AvatarsOptionsStyles,
+  LockIcon,
+  LockedInputStyle,
 } from './profile.style';
 
 export const Profile = () => {
@@ -68,7 +70,7 @@ export const Profile = () => {
           <div>
             <Title>Your profile, Mr. {lastName}</Title>
             <PrimaryText>
-              Don&apos;t forgget to click the save button <br /> Before we are
+              Don&apos;t forget to click the save button <br /> Before we are
               gone!
             </PrimaryText>
           </div>
@@ -87,9 +89,16 @@ export const Profile = () => {
                 onChange={handleInputs}
               />
             </FirstLastStyles>
-            <div>
-              <Input placeholder='Email' width='100%' value={email} disabled />
-            </div>
+            <LockedInputStyle>
+              <Input
+                style={{ border: 'none', backgroundColor: 'white' }}
+                placeholder='Email'
+                width='100%'
+                value={email}
+                disabled
+              />
+              <LockIcon />
+            </LockedInputStyle>
             <div>
               <Input
                 name='nickname'

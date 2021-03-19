@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Button } from '../components/Buttons';
 import {
-  FormStlyes,
+  FormStyles,
   SignUpStyles,
   Form,
   Input,
@@ -64,8 +64,8 @@ export const SignUp = () => {
   return (
     <SignUpStyles>
       <GridAuth height='800px'>
-        <FormStlyes>
-          <div>
+        <FormStyles>
+          <div style={{ marginTop: 72 }}>
             <Title>
               Hurrraaaaay! <br />
               Lets us know who you are!
@@ -142,7 +142,7 @@ export const SignUp = () => {
               </Button>
             </ButtonTertiaryStyles>
           </Form>
-        </FormStlyes>
+        </FormStyles>
         <ImageSignUp background={backgroundImage} />
       </GridAuth>
     </SignUpStyles>
