@@ -8,6 +8,7 @@ import { Login } from './auth/Login';
 import { Records } from './records/Records';
 import { Profile } from './userProfile/Profile';
 import { RecordsProvider } from './context/recordsContext';
+import { NotFound404 } from './notFound/NotFound404';
 
 export const App = () => (
   <>
@@ -15,6 +16,7 @@ export const App = () => (
       <GlobalStyle />
       <Navbar />
       <Switch>
+        <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/signup' component={SignUp} />
         <Route path='/records'>
@@ -23,7 +25,7 @@ export const App = () => (
           </RecordsProvider>
         </Route>
         <Route path='/profile' component={Profile} />
-        <Route path='/' component={Home} />
+        <Route component={NotFound404} />
       </Switch>
     </Router>
   </>
