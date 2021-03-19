@@ -17,6 +17,10 @@ export const SignUpStyles = styled.div`
   align-items: center;
 `;
 
+export const SignUpGreetingStyles = styled.div`
+  margin-top: 4rem;
+`;
+
 export const FormStyles = styled.div`
   max-width: 538px;
   display: flex;

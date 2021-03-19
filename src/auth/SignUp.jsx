@@ -9,6 +9,7 @@ import {
   FirstLastStyles,
   ImageSignUp,
   ButtonTertiaryStyles,
+  SignUpGreetingStyles,
 } from './auth.styles';
 
 import backgroundImage from '../components/imgs/SignUp.png';
@@ -65,7 +66,7 @@ export const SignUp = () => {
     <SignUpStyles>
       <GridAuth height='800px'>
         <FormStyles>
-          <div style={{ marginTop: 72 }}>
+          <SignUpGreetingStyles>
             <Title>
               Hurrraaaaay! <br />
               Lets us know who you are!
@@ -73,7 +74,7 @@ export const SignUp = () => {
             <PrimaryText>
               We won&apos;t share your info with anybody. I promise
             </PrimaryText>
-          </div>
+          </SignUpGreetingStyles>
           <Form onSubmit={handleSignUpUser}>
             <FirstLastStyles>
               <Input

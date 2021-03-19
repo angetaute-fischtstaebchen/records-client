@@ -31,7 +31,7 @@ export const ProfileForm = styled.form`
   height: 500px;
 `;
 
-export const LockedInputStyle = styled.div`
+export const LockedInputStyles = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -41,7 +41,7 @@ export const LockedInputStyle = styled.div`
 
 export const AvatarsStyles = styled.div`
   width: 700px;
-  height: 67vh;
+  height: 621px;
 `;
 export const Avatar = styled.button`
   background: url(${(props) => props.avatar}) center/cover no-repeat;

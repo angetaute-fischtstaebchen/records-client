@@ -24,7 +24,7 @@ import {
   AvatarsImagesStyles,
   AvatarsOptionsStyles,
   LockIcon,
-  LockedInputStyle,
+  LockedInputStyles,
 } from './profile.style';
 
 export const Profile = () => {
@@ -89,7 +89,7 @@ export const Profile = () => {
                 onChange={handleInputs}
               />
             </FirstLastStyles>
-            <LockedInputStyle>
+            <LockedInputStyles>
               <Input
                 style={{ border: 'none', backgroundColor: 'white' }}
                 placeholder='Email'
@@ -98,7 +98,7 @@ export const Profile = () => {
                 disabled
               />
               <LockIcon />
-            </LockedInputStyle>
+            </LockedInputStyles>
             <div>
               <Input
                 name='nickname'
