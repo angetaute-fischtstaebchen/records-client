@@ -22,3 +22,9 @@ export const GridAuth = styled.div`
   width: 1600px;
   height: ${(props) => props.height};
 `;
+
+export const GridNotFound = styled(GridStyles)`
+  background-color: #f2f2f2;
+  height: 100vh;
+  margin: 0;
+`;
