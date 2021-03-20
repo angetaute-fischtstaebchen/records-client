@@ -17,7 +17,11 @@ export const SignUpStyles = styled.div`
   align-items: center;
 `;
 
-export const FormStlyes = styled.div`
+export const SignUpGreetingStyles = styled.div`
+  margin-top: 72px;
+`;
+
+export const FormStyles = styled.div`
   max-width: 538px;
   display: flex;
   flex-direction: column;
@@ -39,6 +43,11 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+`;
+
+export const LockInput = styled(Input)`
+  border: none;
+  background-color: white;
 `;
 
 export const Form = styled.form`

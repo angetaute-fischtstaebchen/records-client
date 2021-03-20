@@ -5,6 +5,7 @@ import {
   ButtonTertiaryStyles,
   FirstLastStyles,
   Input,
+  LockInput,
 } from '../auth/auth.styles';
 import { Button } from '../components/Buttons';
 import { GridAuth } from '../components/Grid/grid.style';
@@ -23,6 +24,8 @@ import {
   TextStyles,
   AvatarsImagesStyles,
   AvatarsOptionsStyles,
+  LockIcon,
+  LockedInputStyles,
 } from './profile.style';
 
 export const Profile = () => {
@@ -68,7 +71,7 @@ export const Profile = () => {
           <div>
             <Title>Your profile, Mr. {lastName}</Title>
             <PrimaryText>
-              Don&apos;t forgget to click the save button <br /> Before we are
+              Don&apos;t forget to click the save button <br /> Before we are
               gone!
             </PrimaryText>
           </div>
@@ -87,9 +90,15 @@ export const Profile = () => {
                 onChange={handleInputs}
               />
             </FirstLastStyles>
-            <div>
-              <Input placeholder='Email' width='100%' value={email} disabled />
-            </div>
+            <LockedInputStyles>
+              <LockInput
+                placeholder='Email'
+                width='100%'
+                value={email}
+                disabled
+              />
+              <LockIcon />
+            </LockedInputStyles>
             <div>
               <Input
                 name='nickname'

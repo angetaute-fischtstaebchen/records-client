@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Button } from '../components/Buttons';
 import {
-  FormStlyes,
+  FormStyles,
   SignUpStyles,
   Form,
   Input,
   FirstLastStyles,
   ImageSignUp,
   ButtonTertiaryStyles,
+  SignUpGreetingStyles,
 } from './auth.styles';
 
 import backgroundImage from '../components/imgs/SignUp.png';
@@ -64,8 +65,8 @@ export const SignUp = () => {
   return (
     <SignUpStyles>
       <GridAuth height='800px'>
-        <FormStlyes>
-          <div>
+        <FormStyles>
+          <SignUpGreetingStyles>
             <Title>
               Hurrraaaaay! <br />
               Lets us know who you are!
@@ -73,7 +74,7 @@ export const SignUp = () => {
             <PrimaryText>
               We won&apos;t share your info with anybody. I promise
             </PrimaryText>
-          </div>
+          </SignUpGreetingStyles>
           <Form onSubmit={handleSignUpUser}>
             <FirstLastStyles>
               <Input
@@ -142,7 +143,7 @@ export const SignUp = () => {
               </Button>
             </ButtonTertiaryStyles>
           </Form>
-        </FormStlyes>
+        </FormStyles>
         <ImageSignUp background={backgroundImage} />
       </GridAuth>
     </SignUpStyles>
