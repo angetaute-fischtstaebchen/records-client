@@ -45,6 +45,11 @@ export const Input = styled.input`
   }
 `;
 
+export const LockInput = styled(Input)`
+  border: none;
+  background-color: white;
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;

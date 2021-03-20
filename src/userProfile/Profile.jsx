@@ -5,6 +5,7 @@ import {
   ButtonTertiaryStyles,
   FirstLastStyles,
   Input,
+  LockInput,
 } from '../auth/auth.styles';
 import { Button } from '../components/Buttons';
 import { GridAuth } from '../components/Grid/grid.style';
@@ -90,8 +91,7 @@ export const Profile = () => {
               />
             </FirstLastStyles>
             <LockedInputStyles>
-              <Input
-                style={{ border: 'none', backgroundColor: 'white' }}
+              <LockInput
                 placeholder='Email'
                 width='100%'
                 value={email}
