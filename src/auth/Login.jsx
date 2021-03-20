@@ -24,7 +24,7 @@ export const Login = () => {
     dispatchUser,
     auth: { user, error },
   } = useUser();
-  console.log(error);
+
   if (user) return <Redirect to='/records' />;
 
   const handleLoginSubmit = (e) => {
@@ -53,7 +53,7 @@ export const Login = () => {
             <div>
               <Input {...passwordProps} placeholder='Password' width='100%' />
             </div>
-            {error && <ErrorMessage> {error}</ErrorMessage>}
+            {error && <ErrorMessage> {error?.messages}</ErrorMessage>}
             <ButtonTertiaryStyles>
               <Button secondary type='submit'>
                 Log in
@@ -62,7 +62,9 @@ export const Login = () => {
           </Form>
           <p>
             What? You don&apos;t have an account? Create one
-            <Link to='/signup'> here!</Link>
+            <Link to='/signup'>
+              <strong> here!</strong>
+            </Link>
           </p>
         </FormStyles>
         <ImageSignUp background={backgroundImage} />

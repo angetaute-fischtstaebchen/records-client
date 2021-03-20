@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { ERROR } from '../../context/constants';
 
 import { useUser } from '../../context/userContext';
 
@@ -17,11 +18,17 @@ export const Navbar = () => {
   const history = useHistory();
   const {
     auth: { user },
+    dispatchUser,
   } = useUser();
 
-  const handleGoToSignUp = () => history.push('/signup');
-  const handleGoToLogin = () => history.push('/login');
-
+  const handleGoToSignUp = () => {
+    history.push('/signup');
+    dispatchUser({ type: ERROR, payload: null });
+  };
+  const handleGoToLogin = () => {
+    history.push('/login');
+    dispatchUser({ type: ERROR, payload: null });
+  };
   return (
     <HeaderStyles>
       <Header>

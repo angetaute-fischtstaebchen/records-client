@@ -13,7 +13,7 @@ export const loginUser = async ({ email, password, dispatchUser }) => {
 
     dispatchUser({ type: LOGIN_USER, payload: data });
   } catch (err) {
-    dispatchUser({ type: ERROR, payload: err?.response?.data?.error?.message });
+    dispatchUser({ type: ERROR, payload: err?.response?.data });
   }
 };
 
@@ -35,7 +35,7 @@ export const signUpUser = async ({
     });
     dispatchUser({ type: SIGNUP_USER, payload: data });
   } catch (err) {
-    dispatchUser({ type: ERROR, payload: err.message });
+    dispatchUser({ type: ERROR, payload: err?.response?.data });
   }
 };
 

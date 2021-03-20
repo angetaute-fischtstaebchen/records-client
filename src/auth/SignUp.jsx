@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+
 import { Button } from '../components/Buttons';
 import {
   FormStyles,
@@ -9,7 +10,6 @@ import {
   FirstLastStyles,
   ImageSignUp,
   ButtonTertiaryStyles,
-  SignUpGreetingStyles,
 } from './auth.styles';
 
 import backgroundImage from '../components/imgs/SignUp.png';
@@ -18,6 +18,7 @@ import { GridAuth } from '../components/Grid';
 import { useUser } from '../context/userContext';
 import { signUpUser } from '../helpers/apiCalls';
 import { validateSingUp } from '../helpers';
+import { ERROR } from '../context/constants';
 
 const initialNewUserState = {
   firstName: '',
@@ -30,7 +31,7 @@ const initialNewUserState = {
 
 export const SignUp = () => {
   const [newUser, setNewUser] = useState(initialNewUserState);
-  const [error, setError] = useState(null);
+  const [errorClient, setErrorClient] = useState(null);
 
   const {
     dispatchUser,
@@ -42,8 +43,8 @@ export const SignUp = () => {
   const handleSignUpUser = (e) => {
     e.preventDefault();
 
-    const isError = validateSingUp(newUser);
-    if (isError) return setError({ [isError]: true });
+    const isErrorClient = validateSingUp(newUser);
+    if (isErrorClient) return setErrorClient({ [isErrorClient]: true });
 
     const { firstName, lastName, email, nickname, password } = newUser;
 
@@ -59,22 +60,24 @@ export const SignUp = () => {
     return undefined;
   };
 
-  const handleInputs = (e) =>
+  const handleInputs = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    setErrorClient(null);
+    dispatchUser({ type: ERROR, payload: null });
+  };
 
   return (
     <SignUpStyles>
       <GridAuth height='800px'>
         <FormStyles>
-          <SignUpGreetingStyles>
-            <Title>
-              Hurrraaaaay! <br />
-              Lets us know who you are!
-            </Title>
-            <PrimaryText>
-              We won&apos;t share your info with anybody. I promise
-            </PrimaryText>
-          </SignUpGreetingStyles>
+          <Title>
+            Hurrraaaaay! <br />
+            Lets us know who you are!
+          </Title>
+          <PrimaryText>
+            We won&apos;t share your info with anybody. I promise
+          </PrimaryText>
+
           <Form onSubmit={handleSignUpUser}>
             <FirstLastStyles>
               <Input
@@ -116,7 +119,7 @@ export const SignUp = () => {
                 placeholder='Password'
                 width='100%'
               />
-              {error?.passwordStrength && (
+              {errorClient?.passwordStrength && (
                 <ErrorMessage>
                   Password is not strong enough. You need at least one number,
                   one lowercase and one uppercase letter and at least six
@@ -132,10 +135,10 @@ export const SignUp = () => {
                 placeholder='Repeat password'
                 width='100%'
               />
-              {error?.passwordEquality && (
+              {errorClient?.passwordEquality && (
                 <ErrorMessage>Passwords do not match</ErrorMessage>
               )}
-              {errorApi && <ErrorMessage>{errorApi}</ErrorMessage>}
+              {errorApi && <ErrorMessage>{errorApi.messages}</ErrorMessage>}
             </div>
             <ButtonTertiaryStyles>
               <Button secondary type='submit'>
