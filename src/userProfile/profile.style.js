@@ -86,6 +86,6 @@ export const AvatarsOptionsStyles = styled.div`
 
 export const LockIcon = styled(LockAlt)`
   color: black;
-  width: 1.2rem;
-  height: 1.1rem;
+  width: 19.2px;
+  height: 17.6px;
 `;
