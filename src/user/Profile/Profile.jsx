@@ -37,7 +37,7 @@ export const Profile = () => {
     avatar: currentAvatar,
   });
 
-  if (!user) return <Redirect to='/home' />;
+  if (!user) return <Redirect to='/' />;
 
   const { lastName, email, _id: id } = user;
 

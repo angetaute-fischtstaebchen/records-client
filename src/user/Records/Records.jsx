@@ -11,7 +11,7 @@ export const Records = () => {
     auth: { user },
   } = useUser();
   const { records } = useRecords();
-  if (!user) return <Redirect to='/home' />;
+  if (!user) return <Redirect to='/' />;
 
   return (
     <GridStyles>
