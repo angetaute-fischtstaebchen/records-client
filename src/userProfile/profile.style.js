@@ -41,7 +41,7 @@ export const LockedInputStyles = styled.div`
 
 export const AvatarsStyles = styled.div`
   width: 700px;
-  height: 621px;
+  height: 620px;
 `;
 export const Avatar = styled.button`
   background: url(${(props) => props.avatar}) center/cover no-repeat;
@@ -86,6 +86,6 @@ export const AvatarsOptionsStyles = styled.div`
 
 export const LockIcon = styled(LockAlt)`
   color: black;
-  width: 1.2rem;
-  height: 1.1rem;
+  width: 19.2px;
+  height: 17.6px;
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { navbarConstants } from '../Navbar/constants';
 
 export const GridStyles = styled.div`
   display: grid;
@@ -25,6 +26,6 @@ export const GridAuth = styled.div`
 
 export const GridNotFound = styled(GridStyles)`
   background-color: #f2f2f2;
-  height: 100vh;
+  height: calc(100vh - ${navbarConstants.height});
   margin: 0;
 `;

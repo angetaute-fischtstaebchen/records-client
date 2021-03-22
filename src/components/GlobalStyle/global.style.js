@@ -7,10 +7,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
     body {
-        font-size: 1rem;
-        font-family: "Montserrat", sans-serif;
-
-        
+        font-family: "Montserrat", sans-serif;       
     }
     a {
         text-decoration: none;

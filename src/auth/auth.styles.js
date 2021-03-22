@@ -17,10 +17,6 @@ export const SignUpStyles = styled.div`
   align-items: center;
 `;
 
-export const SignUpGreetingStyles = styled.div`
-  margin-top: 72px;
-`;
-
 export const FormStyles = styled.div`
   max-width: 538px;
   display: flex;
@@ -53,7 +49,7 @@ export const LockInput = styled(Input)`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-grow: 1;
 `;
 

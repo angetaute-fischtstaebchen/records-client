@@ -9,7 +9,6 @@ import {
 } from '../auth/auth.styles';
 import { Button } from '../components/Buttons';
 import { GridAuth } from '../components/Grid/grid.style';
-
 import { ErrorMessage, PrimaryText, Title } from '../components/Text';
 import { useUser } from '../context/userContext';
 import { updateUser } from '../helpers/apiCalls';
