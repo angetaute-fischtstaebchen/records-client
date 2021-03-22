@@ -15,7 +15,6 @@ export const App = () => (
       <GlobalStyle />
       <Navbar />
       <Switch>
-        <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/signup' component={SignUp} />
         <Route path='/records'>
@@ -24,7 +23,8 @@ export const App = () => (
           </RecordsProvider>
         </Route>
         <Route path='/profile' component={Profile} />
-        <Route component={NotFound404} />
+        <Route exact path='/' component={Home} />
+        <Route path='*' component={NotFound404} />
       </Switch>
     </Router>
   </>
