@@ -1,20 +1,14 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Button } from '../components/Buttons';
-import {
-  FormStyles,
-  SignUpStyles,
-  Form,
-  Input,
-  ImageSignUp,
-  ButtonTertiaryStyles,
-} from './auth.styles';
+import { Button, ButtonTertiaryStyles } from '../components/Buttons';
+import { FormStyles, SignUpStyles, Form, ImageSignUp } from './auth.styles';
 import backgroundImage from '../components/imgs/Login.png';
 import { ErrorMessage, PrimaryText, Title } from '../components/Text';
 import { GridAuth } from '../components/Grid';
 import { useInput } from '../hooks/useInput';
 import { loginUser } from '../helpers/apiCalls';
 import { useUser } from '../context/userContext';
+import { Input } from '../components/Input';
 
 export const Login = () => {
   const [emailProps, resetEmail] = useInput('');

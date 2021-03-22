@@ -1,8 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button } from '../components/Buttons/index';
-import { GridNotFound } from '../components/Grid';
-import { Title } from '../components/Text';
+import { Button } from '../Buttons';
+import { GridNotFound } from '../Grid';
+import { Title } from '../Text';
+
 import { NotFoundStyles, ButtonStyles } from './notFound.style';
 
 export const NotFound404 = () => {

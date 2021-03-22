@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { LockAlt } from '@styled-icons/boxicons-regular/LockAlt';
-import { navbarConstants } from '../components/Navbar/constants';
+import { navbarConstants } from '../../components/Navbar/constants';
 
 export const ProfileImageStyles = styled.div`
   background-color: #f1efff;

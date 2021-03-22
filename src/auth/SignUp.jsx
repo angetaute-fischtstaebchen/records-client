@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { Button } from '../components/Buttons';
+import { Button, ButtonTertiaryStyles } from '../components/Buttons';
 import {
   FormStyles,
   SignUpStyles,
   Form,
-  Input,
   FirstLastStyles,
   ImageSignUp,
-  ButtonTertiaryStyles,
 } from './auth.styles';
 
 import backgroundImage from '../components/imgs/SignUp.png';
@@ -19,6 +17,7 @@ import { useUser } from '../context/userContext';
 import { signUpUser } from '../helpers/apiCalls';
 import { validateSingUp } from '../helpers';
 import { ERROR } from '../context/constants';
+import { Input } from '../components/Input';
 
 const initialNewUserState = {
   firstName: '',
