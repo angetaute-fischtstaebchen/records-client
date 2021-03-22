@@ -42,10 +42,20 @@ export const Login = () => {
           </div>
           <Form onSubmit={handleLoginSubmit}>
             <div>
-              <Input {...emailProps} placeholder='Email' width='100%' />
+              <Input
+                {...emailProps}
+                placeholder='Email'
+                width='100%'
+                required
+              />
             </div>
             <div>
-              <Input {...passwordProps} placeholder='Password' width='100%' />
+              <Input
+                {...passwordProps}
+                placeholder='Password'
+                width='100%'
+                required
+              />
             </div>
             {error && <ErrorMessage> {error?.messages}</ErrorMessage>}
             <ButtonTertiaryStyles>

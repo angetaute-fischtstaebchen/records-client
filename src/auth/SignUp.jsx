@@ -84,12 +84,14 @@ export const SignUp = () => {
                 value={newUser.firstName}
                 onChange={handleInputs}
                 placeholder='First Name'
+                required
               />
               <Input
                 name='lastName'
                 value={newUser.lastName}
                 onChange={handleInputs}
                 placeholder='Last Name'
+                required
               />
             </FirstLastStyles>
             <div>
@@ -99,6 +101,8 @@ export const SignUp = () => {
                 onChange={handleInputs}
                 placeholder='Email'
                 width='100%'
+                type='email'
+                required
               />
             </div>
             <div>
@@ -108,6 +112,7 @@ export const SignUp = () => {
                 onChange={handleInputs}
                 placeholder='Nickname'
                 width='100%'
+                required
               />
             </div>
             <div>
@@ -117,6 +122,8 @@ export const SignUp = () => {
                 onChange={handleInputs}
                 placeholder='Password'
                 width='100%'
+                type='password'
+                required
               />
               {errorClient?.passwordStrength && (
                 <ErrorMessage>
@@ -133,6 +140,8 @@ export const SignUp = () => {
                 onChange={handleInputs}
                 placeholder='Repeat password'
                 width='100%'
+                type='password'
+                required
               />
               {errorClient?.passwordEquality && (
                 <ErrorMessage>Passwords do not match</ErrorMessage>
