@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { Button } from '../components/Buttons';
+import { Button, ButtonTertiaryStyles } from '../components/Buttons';
 import {
   FormStyles,
   SignUpStyles,
   Form,
-  Input,
   FirstLastStyles,
   ImageSignUp,
-  ButtonTertiaryStyles,
 } from './auth.styles';
 
 import backgroundImage from '../components/imgs/SignUp.png';
@@ -19,6 +17,7 @@ import { useUser } from '../context/userContext';
 import { signUpUser } from '../helpers/apiCalls';
 import { validateSingUp } from '../helpers';
 import { ERROR } from '../context/constants';
+import { Input } from '../components/Input';
 
 const initialNewUserState = {
   firstName: '',
@@ -85,12 +84,14 @@ export const SignUp = () => {
                 value={newUser.firstName}
                 onChange={handleInputs}
                 placeholder='First Name'
+                required
               />
               <Input
                 name='lastName'
                 value={newUser.lastName}
                 onChange={handleInputs}
                 placeholder='Last Name'
+                required
               />
             </FirstLastStyles>
             <div>
@@ -100,6 +101,8 @@ export const SignUp = () => {
                 onChange={handleInputs}
                 placeholder='Email'
                 width='100%'
+                type='email'
+                required
               />
             </div>
             <div>
@@ -109,6 +112,7 @@ export const SignUp = () => {
                 onChange={handleInputs}
                 placeholder='Nickname'
                 width='100%'
+                required
               />
             </div>
             <div>
@@ -118,6 +122,8 @@ export const SignUp = () => {
                 onChange={handleInputs}
                 placeholder='Password'
                 width='100%'
+                type='password'
+                required
               />
               {errorClient?.passwordStrength && (
                 <ErrorMessage>
@@ -134,6 +140,8 @@ export const SignUp = () => {
                 onChange={handleInputs}
                 placeholder='Repeat password'
                 width='100%'
+                type='password'
+                required
               />
               {errorClient?.passwordEquality && (
                 <ErrorMessage>Passwords do not match</ErrorMessage>

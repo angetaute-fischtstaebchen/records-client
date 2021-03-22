@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { SignUp } from './auth/SignUp';
 import { Navbar } from './components/Navbar';
 import { GlobalStyle } from './components/GlobalStyle';
-import { Home } from './home';
 import { Login } from './auth/Login';
-import { Records } from './records/Records';
-import { Profile } from './userProfile/Profile';
+import { Records, Profile } from './user';
 import { RecordsProvider } from './context/recordsContext';
-import { NotFound404 } from './notFound/NotFound404';
+import { Home } from './components/Home';
+import { NotFound404 } from './components/NotFound404/NotFound404';
 
 export const App = () => (
   <>

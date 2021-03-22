@@ -23,3 +23,7 @@ export const Button = styled(LoginButton)`
     text-decoration: underline;
   }
 `;
+
+export const ButtonTertiaryStyles = styled.div`
+  align-self: flex-end;
+`;

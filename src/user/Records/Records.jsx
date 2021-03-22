@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { GridRecords, GridStyles } from '../components/Grid';
-import { PrimaryText } from '../components/Text';
-import { useRecords } from '../context/recordsContext';
-import { useUser } from '../context/userContext';
+import { GridRecords, GridStyles } from '../../components/Grid';
+import { PrimaryText } from '../../components/Text';
+import { useRecords } from '../../context/recordsContext';
+import { useUser } from '../../context/userContext';
 import { Image, RecordImageStyles, RecordItem } from './records.style';
 
 export const Records = () => {

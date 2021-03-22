@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import backgroundImage from '../components/imgs/Home.png';
-import { navbarConstants } from '../components/Navbar/constants';
+import backgroundImage from '../imgs/Home.png';
+import { navbarConstants } from '../Navbar/constants';
 
 export const HomeStyles = styled.div`
   height: calc(100vh - ${navbarConstants.height});
